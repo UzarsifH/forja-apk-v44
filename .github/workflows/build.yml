@@ -30,7 +30,7 @@ jobs:
         run: |
           pip install pillow numpy
           python scripts/make-art.py
-          python scripts/seed-photos.py
+          [ -f scripts/seed-photos.py ] && python scripts/seed-photos.py || true
       - name: Download real photos
         working-directory: forja-app
         run: node scripts/fetch-images.mjs
